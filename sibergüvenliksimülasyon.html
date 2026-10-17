@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>ACİL SİSTEM UYARISI</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            padding:20px;
+        }
+        #ekran {
+            border: 2px solid lime;
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+        button {
+            background-color: lime;
+            color: black;
+            padding: 10px 10px;
+            font-weight: bold;
+            border:none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {background: lime;}
+    </style>
+</head>
+<body>
+<h1>SİBER GÜVENLİK UYARISI</h1>
+<p>
+    Bu ekran, dijital ayak izinin internette
+    nasıl iz bırakabileceğini göstermek için hazırlanmıştır.
+    Bir simülasyon ekranıdır.
+</p>
+<div id="ekran"> >>> Sistem hazır...</div>
+<button onclick="basla()">Testi Başlat</button>
+<script>
+function yaz(metin, gecikme) {
+    setTimeout(() => {
+        document.getElementById("ekran").innerHTML
+        += "<br>>>" + metin;
+    }, gecikme);
+}
+
+function basla(){
+    document.getElementById("ekran").innerHTML
+    =">>> Dijital ayak izi analizi başlatılıyor.";
+    yaz("Kullanıcı aramaları taranıyor...",1000);
+    yaz("Siteler taranıyor...",2000);
+    yaz("Sosyal medya paylaşımları taranıyor...",3000);
+    yaz("Analiz tamamlanıyor...",1500);
+}
+
+</script>
+</body>
+</html>
