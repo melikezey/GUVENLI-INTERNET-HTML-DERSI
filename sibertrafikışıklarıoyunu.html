@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Siber Trafik Işıkları Oyunu</title>
+  <style>
+     body {
+       background: #f4f8fc;
+       font-family: Arial, Helvetica, sans-serif;
+       padding: 20px;
+       text-align: center;
+     }
+     #kutu {
+       width: 60%;
+       margin: auto;
+       background: white;
+       padding: 20px;
+       border-radius: 10px;
+       border: 2px solid #005bbb;
+     }
+     #soru {
+       font-size: 22px;
+       margin-bottom: 20px;
+       color: #003f7d;
+     }
+     button {
+       padding: 12px 20px;
+       font-size: 18px;
+       border: none;
+       cursor: pointer;
+       border-radius: 6px;
+       color: white;
+       margin: 10px;
+     }
+     #dogru{background: lime;}
+     #yanlis{background-color: red;}
+     #puan{
+       font-size: 20px;
+       margin-top: 20px;
+     }
+  </style>
+</head>
+<body>
+<h1>🔴 🟢Siber Trafik Işıkları Oyunu</h1>
+<p>Görünen içeriğin güvenli olup olmadığını tahmin et!</p>
+<div id="kutu">
+  <div id="soru">
+  </div>
+  <button id="dogru" onclick="sec(true)">
+    Güvenli👍
+  </button>
+  <button id="yanlis" onclick="sec(false)">
+    Tehlikeli👎
+  </button>
+  <div id="puan">
+    Puan:
+  </div>
+</div>
+<script>
+  let puan = 0;
+  let index = 0;
+
+  const Sorular = [
+    {metin:"Bilinmeyen bir bağlantıyı açmak." , cevap: false},
+    {metin:"e-okul resmi sitesine girmek.", cevap: true},
+    {metin:"Bilinmeyen dosyaları indirmek.", cevap:false},
+  ];
+ function soruGoster() {
+   if (index<Sorular.length) {
+     document.getElementById("soru").innerText = Sorular[index].metin;
+   }
+   else {
+     document.getElementById("soru").innerText = "Sorular bitti, toplanan puan:"+ puan;
+
+     document.getElementById("dogru").style.display="none";
+
+     document.getElementById("yanlis").style.display="none";
+   }
+
+   function sec(secim) {
+     if(secim === Sorular[index].cevap){puan +=10;}
+     else{puan -=5;}
+     document.getElementById("puan").innerText = "puan:"+puan;index++;soruGoster();
+   }
+
+ }
+  soruGoster();
+</script>
+</body>
+</html>
